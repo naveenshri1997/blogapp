@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../bloglogo.png';
+import { NavLink } from 'react-router-dom';
 const Header = () => {
   return (
     <>
@@ -11,6 +12,7 @@ const Header = () => {
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />       
       </form>
+       <NavLink className="nav-link" to="adminlogin">Admin Login</NavLink></p>
     </div>
   </div>
 </nav>
