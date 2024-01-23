@@ -18,11 +18,11 @@ app.use(cors());
 // );
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(
-    cors({
-        origin: "*",
-    })
-)
+// app.use(
+//     cors({
+//         origin: "*",
+//     })
+// )
 
 app.get('/', (req, res) => {
     res.send('hello from server');
