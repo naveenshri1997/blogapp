@@ -12,7 +12,7 @@ const Header = () => {
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />       
       </form>
-       <NavLink className="nav-link" to="adminlogin">Admin Login</NavLink></p>
+       <NavLink className="nav-link" to="adminlogin">Admin Login</NavLink>
     </div>
   </div>
 </nav>
