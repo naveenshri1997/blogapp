@@ -37,16 +37,16 @@ const Sidebar = () => {
               <span className="icon" data-bs-toggle="tooltip" data-bs-title="Master">
                 <i className="fas fa-cubes"></i>
               </span>
-              <span className="menu">Laws</span>
+              <span className="menu">Post</span>
             </a>
           </li>
           <div className="collapse" id="masterCollapse1">
             <li className="nav-item">
-              <Link className="nav-link" to="/addlaw">
+              <Link className="nav-link" to="/addpost">
                 <span className="icon" data-bs-toggle="tooltip" data-bs-title="Child One">
                   <i className="fas fa-cube"></i>
                 </span>
-                <span className="menu">Add Law</span>
+                <span className="menu">Add Post</span>
               </Link>
             </li>
 
