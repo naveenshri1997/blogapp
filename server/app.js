@@ -11,6 +11,11 @@ require('./db/conn');
 app.use(require('./router/auth'));
 
 app.use(cors());
+app.use(
+    cors({
+      origin: "https://blogclient-f7iq.onrender.com/",
+    })
+);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
