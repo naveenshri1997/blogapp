@@ -11,7 +11,7 @@ router.post('/login', async(req,res)=>{
             res.status(400).json({'msg':'username or password not entered!'})
         }        
         const userLogin = await User.findOne({username:username})
-
+         res.setHeader('Access-Control-Allow-Credentials', 'true');   
         if(!password == userLogin.password){
             res.status(400).json({'msg':'invalid password'});
         }else{
