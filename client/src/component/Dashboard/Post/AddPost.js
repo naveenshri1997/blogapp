@@ -45,7 +45,7 @@ const AddPost = () => {
 
         console.log("add", formData);
 
-        const res = await fetch('http://localhost:5000/addpost', {
+        const res = await fetch('https://blogserver-hlmq.onrender.com/addpost', {
             method: 'POST',                                
               body: formData,
         });
