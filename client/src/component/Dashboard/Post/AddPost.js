@@ -17,37 +17,38 @@ const AddPost = () => {
 
     const editor = useRef(null);
     const [post_author, setpost_author] = useState('');
-    // const [post_author_img, setpost_author_img] = useState('');
-    const [post_category, setpost_category] = useState('');
+    const [category,setcategory] = useState('');
     const [post_title,setpost_title] = useState('');
     const [post_para,setpost_para] = useState('');
+    const [image, setimage] = useState('');
+
     // const [post_img, setpost_img] = useState('');
     const [error, seterrror] = React.useState(false);
     const addpost = async (e) => {
         // setcategory('');
 
         e.preventDefault();
-        if (!post_author || !post_category|| !post_title|| !post_para) {
+        if (!post_author || !category|| !post_title|| !post_para) {
             seterrror(true);
             return false
         }
         const formData = new FormData();
         formData.append('post_author',post_author);
-        // formData.append('post_author_img', post_author_img);
-        formData.append('post_category', post_category);
+        formData.append('category',category);
         formData.append('post_title', post_title);
         formData.append('post_para', post_para);
+        formData.append('image', image);
+
         // formData.append('post_img', post_img);
 
 
 
         console.log("add", formData);
 
-        const res = await fetch('https://blogserver-hlmq.onrender.com/addpost', {
-            method: 'POST',
-            body: formData,
-           
-        },);
+        const res = await fetch('http://localhost:5000/addpost', {
+            method: 'POST',                                
+              body: formData,
+        });
         const data = await res.json();
         if (res.status == 500 || !data) {
             window.alert("data not added");
@@ -69,7 +70,7 @@ const AddPost = () => {
     const timer = () => {
         setTimeout(() => {
             window.location.reload(false);
-        }, 1300);
+        }, 15300);
     }
     return (
         <>
@@ -96,18 +97,12 @@ const AddPost = () => {
                                                 {error && !post_author && <span className='error'>Please fil this Field *</span>}
                                             </div>
                                         </div>
-                                        {/* <div className="mb-3 row">
-                                            <label className="col-sm-3 col-form-label">Upload Author image</label>
-                                            <div className="col-sm-9">
-                                                <input type="file" className="form-control" onChange={(e) => setpost_author_img(e.target.files[0])} />
-                                                {error && !post_author_img && <span className='error'>Please fil this Field *</span>}
-                                            </div>
-                                        </div> */}
+                                        
                                         <div className="mb-3 row">
                                             <label className="col-sm-3 col-form-label">Post Category</label>
                                             <div className="col-sm-9">
-                                                <input type="text" className="form-control" value={post_category} onChange={(e) => setpost_category(e.target.value)} />
-                                                {error && !post_category && <span className='error'>Please fil this Field *</span>}
+                                                <input type="text" className="form-control" value={category} onChange={(e) => setcategory(e.target.value)} />
+                                                {error && !category && <span className='error'>Please fil this Field *</span>}
                                             </div>
                                         </div>   
                                         <div className="mb-3 row">
@@ -130,7 +125,14 @@ const AddPost = () => {
                                                 />
                                                 {error && !post_para && <span className='error'>Please fil this Field *</span>}
                                             </div>
-                                        </div>      
+                                        </div>     
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-3 col-form-label">Upload Author image</label>
+                                            <div className="col-sm-9">
+                                                <input type="file" className="form-control" onChange={(e) => setimage(e.target.files[0])} />
+                                                {error && !image && <span className='error'>Please fil this Field *</span>}
+                                            </div>
+                                        </div> 
                                         {/* <div className="mb-3 row">
                                             <label className="col-sm-3 col-form-label">Upload Post Image</label>
                                             <div className="col-sm-9">
