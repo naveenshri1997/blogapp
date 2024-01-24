@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema({
     post_author:{
         type:String,
     },
-    post_category:{
+    category:{
         type:String,
     },
     post_title:{
@@ -12,7 +12,11 @@ const postSchema = new mongoose.Schema({
     },
     post_para:{
         type:String,
-    }, 
+    } ,
+    image:{
+        type:String,
+    }
+   
 })
 
 const Post = mongoose.model('POST',postSchema);
